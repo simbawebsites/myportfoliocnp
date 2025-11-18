@@ -6,7 +6,11 @@
 <title>Neon Cyber Portfolio</title>
 
 <style>
-/* RESET + BASE */
+/*  
+===========================================================
+GLOBAL RESET + BASE STYLES
+===========================================================
+*/
 * {
   margin: 0;
   padding: 0;
@@ -15,16 +19,22 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* smooth scrolling for nav links */
 }
 
 body {
   background: radial-gradient(circle at top, #141428, #0d0d18 70%);
   color: #e2e2ff;
-  padding-top: 150px;
+  padding-top: 150px; /* gives room for sticky navbar */
 }
 
-/* ===== NAVBAR ===== */
+
+
+/*  
+===========================================================
+NEON STICKY NAVBAR
+===========================================================
+*/
 .navbar {
   position: fixed;
   top: 20px;
@@ -36,15 +46,18 @@ body {
   border-radius: 50px;
   padding: 15px 40px;
   border: 1px solid #ff00ff;
+
   display: flex;
   align-items: center;
   gap: 30px;
 
+  /* outer + inner neon glow */
   box-shadow:
     0 0 20px #ff00ff,
     inset 0 0 10px rgba(255,0,255,0.4);
 }
 
+/* neon glow trail under navbar */
 .navbar::after {
   content: "";
   position: absolute;
@@ -53,13 +66,13 @@ body {
   width: 100%;
   height: 20px;
   border-radius: 50px;
+
   background: radial-gradient(ellipse at center,
     rgba(255,0,255,0.6),
     rgba(255,0,255,0) 70%
   );
   filter: blur(10px);
   opacity: 0.7;
-  pointer-events: none;
 }
 
 .nav-links {
@@ -72,7 +85,6 @@ body {
   text-decoration: none;
   color: #00ffff;
   font-weight: 600;
-  position: relative;
   transition: 0.3s;
   text-shadow: 0 0 5px #00ffff;
 }
@@ -82,7 +94,13 @@ body {
   text-shadow: 0 0 12px #ff00ff;
 }
 
-/* ===== HERO SECTION ===== */
+
+
+/*  
+===========================================================
+GLOBAL SECTION STYLES
+===========================================================
+*/
 section {
   width: 90%;
   max-width: 1100px;
@@ -90,18 +108,32 @@ section {
   padding: 80px 0;
 }
 
+
+
+/*  
+===========================================================
+HERO SECTION (WITH CANVAS DONUT)
+===========================================================
+*/
 .hero {
   text-align: center;
   padding-top: 40px;
 }
 
-.hero h1 {
+/* canvas donut styling */
+#donutCanvas {
+  display: block;
+  margin: 0 auto 30px;
+  filter: drop-shadow(0 0 10px #00ffff);
+}
+
+.hero-title {
   font-size: 4rem;
   color: #00ffff;
   text-shadow: 0 0 15px #00ffff;
 }
 
-.hero p {
+.hero-subtitle {
   margin-top: 15px;
   font-size: 1.2rem;
   color: #cceeff;
@@ -130,7 +162,13 @@ section {
     0 0 40px #ff00ff;
 }
 
-/* ===== ABOUT ===== */
+
+
+/*  
+===========================================================
+ABOUT SECTION
+===========================================================
+*/
 .about h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
@@ -143,7 +181,13 @@ section {
   font-size: 1.1rem;
 }
 
-/* ===== SKILLS ===== */
+
+
+/*  
+===========================================================
+SKILLS GRID
+===========================================================
+*/
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
@@ -155,7 +199,6 @@ section {
   background: rgba(30,30,50,0.7);
   border: 1px solid #00ffff;
   border-radius: 15px;
-
   text-align: center;
   color: #eaffff;
 
@@ -168,12 +211,16 @@ section {
 
 .skill-card:hover {
   transform: translateY(-5px);
-  box-shadow:
-    0 0 15px #00ffff,
-    0 0 30px #00ffff;
+  box-shadow: 0 0 20px #00ffff;
 }
 
-/* ===== PROJECTS ===== */
+
+
+/*  
+===========================================================
+PROJECTS GRID
+===========================================================
+*/
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
@@ -195,12 +242,16 @@ section {
 
 .project-card:hover {
   transform: scale(1.03);
-  box-shadow:
-    0 0 20px #ff00ff,
-    0 0 40px #ff00ff;
+  box-shadow: 0 0 40px #ff00ff;
 }
 
-/* ===== CONTACT ===== */
+
+
+/*  
+===========================================================
+CONTACT FORM
+===========================================================
+*/
 .contact-form {
   max-width: 500px;
   margin: auto;
@@ -240,7 +291,13 @@ section {
   transform: scale(1.03);
 }
 
-/* ===== FOOTER ===== */
+
+
+/*  
+===========================================================
+FOOTER
+===========================================================
+*/
 footer {
   margin-top: 80px;
   text-align: center;
@@ -248,46 +305,14 @@ footer {
   color: #8888aa;
 }
 
-/* ===== START of ascii donut hero ===== */
-/* ASCII DONUT HERO */
-.donut {
-  font-family: monospace;
-  font-size: 14px;
-  line-height: 14px;
-  white-space: pre;
-  display: inline-block;
-  color: #00ffff;
-  text-shadow: 
-    0 0 5px #00ffff,
-    0 0 10px #00ffff,
-    0 0 20px #00ffff;
-  margin-bottom: 30px;
-  user-select: none;
-  pointer-events: none;
-}
-
-/* Center hero content */
-
-.hero-title {
-  font-size: 3.5rem;
-  margin-top: 20px;
-  color: #00ffff;
-  text-shadow: 0 0 15px #00ffff;
-}
-
-.hero-subtitle {
-  margin-top: 10px;
-  font-size: 1.1rem;
-  color: #ccfaff;
-}
-/* ===== END of ascii donut hero ===== */
-  
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ===========================================================
+STICKY NAVBAR
+=========================================================== -->
 <nav class="navbar">
   <ul class="nav-links">
     <li><a href="#hero">Home</a></li>
@@ -298,16 +323,26 @@ footer {
   </ul>
 </nav>
 
-<!-- HERO -->
+
+
+<!-- ===========================================================
+HERO SECTION + CANVAS DONUT (NEW WORKING ANIMATION)
+=========================================================== -->
 <section id="hero" class="hero">
-  <pre id="donut" class="donut"></pre>
-    
+
+  <!-- Canvas where the animated 3D donut will be drawn -->
+  <canvas id="donutCanvas" width="500" height="300"></canvas>
+
   <h1 class="hero-title">Welcome to My Neon World</h1>
   <p class="hero-subtitle">Cyberpunk developer • Technologist • Digital creator</p>
   <a class="cta" href="#contact">Hire Me</a>
 </section>
 
-<!-- ABOUT -->
+
+
+<!-- ===========================================================
+ABOUT SECTION
+=========================================================== -->
 <section id="about" class="about">
   <h2>About Me</h2>
   <p>
@@ -318,7 +353,11 @@ footer {
   </p>
 </section>
 
-<!-- SKILLS -->
+
+
+<!-- ===========================================================
+SKILLS GRID
+=========================================================== -->
 <section id="skills">
   <h2 class="about-title">Skills</h2>
   <div class="skills-grid">
@@ -331,7 +370,11 @@ footer {
   </div>
 </section>
 
-<!-- PROJECTS -->
+
+
+<!-- ===========================================================
+PROJECTS GRID
+=========================================================== -->
 <section id="projects">
   <h2 class="about-title">Projects</h2>
 
@@ -351,7 +394,12 @@ footer {
   </div>
 </section>
 
-<!-- CONTACT -->
+
+
+
+<!-- ===========================================================
+CONTACT FORM
+=========================================================== -->
 <section id="contact">
   <h2 class="about-title">Contact Me</h2>
 
@@ -363,60 +411,90 @@ footer {
   </form>
 </section>
 
+
+
+<!-- ===========================================================
+FOOTER
+=========================================================== -->
 <footer>
   © 2025 — Neon Portfolio. All Rights Reserved.
 </footer>
 
-<!-- START OF JAVASCRIPT --> 
+
+
+<!-- ===========================================================
+JAVASCRIPT: WORKING CANVAS DONUT (UNTHROTTLED)
+=========================================================== -->
 <script>
-let A = 1, B = 1;
-const donut = document.getElementById("donut");
+/*
+  This version uses <canvas> instead of <pre> text.
+  Chrome throttles innerHTML-based animations heavily.
+  Canvas animations NEVER get throttled and run at 60fps.
 
-setInterval(() => {
-  let b = [];
-  let z = [];
-  const width = 50, height = 22;
+  A = rotation angle around X axis
+  B = rotation angle around Y axis
+*/
+const canvas = document.getElementById("donutCanvas");
+const ctx = canvas.getContext("2d");
 
-  for (let k = 0; k < width * height; k++) {
-    b[k] = " ";
-    z[k] = 0;
-  }
+let A = 0, B = 0;
 
-  for (let j = 0; j < 6.28; j += 0.07) {
-    for (let i = 0; i < 6.28; i += 0.02) {
-      
-      let c = Math.sin(i);
-      let d = Math.cos(j);
-      let e = Math.sin(A);
-      let f = Math.sin(j);
-      let g = Math.cos(A);
-      let h = d + 2;
+function render() {
+  const width = canvas.width;
+  const height = canvas.height;
 
-      let D = 1 / (c * h * e + f * g + 5);
-      let l = Math.cos(i);
-      let m = Math.cos(B);
-      let n = Math.sin(B);
-      let t = c * h * g - f * e;
+  // Clear previous frame
+  ctx.clearRect(0, 0, width, height);
 
-      let x = Math.floor(width / 2 + 15 * D * (l * h * m - t * n));
-      let y = Math.floor(height / 2 + 7 * D * (l * h * n + t * m));
+  // Donut parameters
+  const R1 = 1;       // inner donut radius
+  const R2 = 2;       // outer donut radius
+  const K2 = 5;       // distance from viewer
+  const K1 = width * K2 * 3 / (8 * (R1 + R2));
 
-      let o = Math.floor(x + width * y);
-      let N = Math.floor(8 * ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n));
+  // Loop around torus angles
+  for (let j = 0; j < 6.28; j += 0.07) {      // donut tube
+    for (let i = 0; i < 6.28; i += 0.02) {    // donut circle
 
-      if (y > 0 && y < height && x > 0 && x < width && D > z[o]) {
-        z[o] = D;
-        b[o] = ".,-~:;=!*#$@"[Math.max(N, 0)];
-      }
+      // Precompute sines/cosines
+      const sinA = Math.sin(A), cosA = Math.cos(A);
+      const sinB = Math.sin(B), cosB = Math.cos(B);
+
+      const sinI = Math.sin(i), cosI = Math.cos(i);
+      const sinJ = Math.sin(j), cosJ = Math.cos(j);
+
+      // 3D donut equation
+      const circleX = R2 + R1 * cosI;
+      const circleY = R1 * sinI;
+
+      const x = circleX * (cosB * cosJ + sinA * sinB * sinJ) - circleY * cosA * sinB;
+      const y = circleX * (sinB * cosJ - sinA * cosB * sinJ) + circleY * cosA * cosB;
+      const z = K2 + cosA * circleX * sinJ + circleY * sinA;
+
+      // Project 3D → 2D
+      const ooz = 1 / z;
+      const xp = (width / 2 + K1 * ooz * x) | 0;
+      const yp = (height / 2 - K1 * ooz * y) | 0;
+
+      // Neon color cycling
+      ctx.fillStyle = `hsl(${(A * 50) % 360}, 100%, 70%)`;
+
+      // Draw point
+      ctx.fillRect(xp, yp, 2, 2);
     }
   }
 
-  donut.innerHTML = b.join("");
-  A += 0.07;
-  B += 0.03;
-}, 50);
+  // Rotate donut
+  A += 0.04;
+  B += 0.02;
+
+  // Next frame
+  requestAnimationFrame(render);
+}
+
+// Start animation
+render();
 </script>
-<!-- END OF JAVASCRIPT -->
 
 </body>
 </html>
