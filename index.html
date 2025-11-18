@@ -246,6 +246,44 @@ footer {
   padding: 20px;
   color: #8888aa;
 }
+
+/* ===== START of ascii donut hero ===== */
+/* ASCII DONUT HERO */
+.donut {
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 14px;
+  white-space: pre;
+  color: #00ffff;
+  text-shadow: 
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 20px #00ffff;
+  margin-bottom: 30px;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Center hero content */
+.hero {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-top: 20px;
+  color: #00ffff;
+  text-shadow: 0 0 15px #00ffff;
+}
+
+.hero-subtitle {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #ccfaff;
+}
+/* ===== END of ascii donut hero ===== */
+  
 </style>
 </head>
 
@@ -264,8 +302,9 @@ footer {
 
 <!-- HERO -->
 <section id="hero" class="hero">
-  <h1>Welcome to My Neon World</h1>
-  <p>Cyberpunk developer • Technologist • Digital creator</p>
+  <pre id="donut" class="
+  <h1 class="hero-title">Welcome to My Neon World</h1>
+  <p class="hero-subtitle">Cyberpunk developer • Technologist • Digital creator</p>
   <a class="cta" href="#contact">Hire Me</a>
 </section>
 
@@ -328,6 +367,57 @@ footer {
 <footer>
   © 2025 — Neon Portfolio. All Rights Reserved.
 </footer>
+
+<!-- START OF JAVASCRIPT --> 
+<script>
+let A = 1, B = 1;
+const donut = document.getElementById("donut");
+
+setInterval(() => {
+  let b = [];
+  let z = [];
+  const width = 50, height = 22;
+
+  for (let k = 0; k < width * height; k++) {
+    b[k] = " ";
+    z[k] = 0;
+  }
+
+  for (let j = 0; j < 6.28; j += 0.07) {
+    for (let i = 0; i < 6.28; i += 0.02) {
+      
+      let c = Math.sin(i);
+      let d = Math.cos(j);
+      let e = Math.sin(A);
+      let f = Math.sin(j);
+      let g = Math.cos(A);
+      let h = d + 2;
+
+      let D = 1 / (c * h * e + f * g + 5);
+      let l = Math.cos(i);
+      let m = Math.cos(B);
+      let n = Math.sin(B);
+      let t = c * h * g - f * e;
+
+      let x = Math.floor(width / 2 + 15 * D * (l * h * m - t * n));
+      let y = Math.floor(height / 2 + 7 * D * (l * h * n + t * m));
+
+      let o = Math.floor(x + width * y);
+      let N = Math.floor(8 * ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n));
+
+      if (y > 0 && y < height && x > 0 && x < width && D > z[o]) {
+        z[o] = D;
+        b[o] = ".,-~:;=!*#$@"[Math.max(N, 0)];
+      }
+    }
+  }
+
+  donut.innerHTML = b.join("");
+  A += 0.07;
+  B += 0.03;
+}, 50);
+</script>
+<!-- END OF JAVASCRIPT -->
 
 </body>
 </html>
